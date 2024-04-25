@@ -68,11 +68,11 @@ find /path/to/search  -empty -type f -delete  # delete empty files  in that path
 ### IO Redirection
 
 
-# 3 standard streams of linux 
+3 standard streams of linux 
 
--Standard Input :- accepts text as input 
--Standard Output :- text output from any command is referred to as standard output
--Standard Error :- any error message for our command is referred to as standard error
+Standard Input :- accepts text as input 
+Standard Output :- text output from any command is referred to as standard output
+Standard Error :- any error message for our command is referred to as standard error
 
 To redirect standard output to a file instead of printing on screen 
 
