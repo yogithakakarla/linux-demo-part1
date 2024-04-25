@@ -36,11 +36,14 @@ tar -xvf archive.tar # extract a compressed tar file
 ### Searching for Files and Patterns
 
 ```
-find /path/to/search -name "filename"  
 
 locate file.txt 
 
 # disadvantage is that it gets details/data from database called "mlocate.db" for querying the file. you may sometimes not be able to find the frecently saved file as it might not have updated in db.
+
+```
+
+```
 
 ls -l | grep 'filename-2.txt'
 
@@ -48,12 +51,16 @@ ls -R | grep 'filename-3.txt'
 
 # ls -R recursively lists the contents of directories and subdirectories, while ls -l lists files and directories in a detailed, long-form format
 
+```
+
+```
+find /path/to/search -name "filename"  
+
 # if we go one step ahead of just searching files in Linux , we can check for empty files and delete them as below
 
 find /path/to/search  -empty -type d -delete  # delete empty directories in that path
 
 find /path/to/search  -empty -type f -delete  # delete empty files  in that path 
-
 
 ```
 
