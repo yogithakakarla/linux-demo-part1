@@ -1,7 +1,6 @@
-# Session-4 Notes
 
-###  Working with Shell - 2
 
+# Working with Shell - 2
 
 
 ### View file size
@@ -17,7 +16,11 @@ ls -lh file.txt ### prints size with more details like permissions of file , las
 
 ### File compression and Archival
 
-Since we have seen file size , lets check on how to compress file and extract the compressed file
+Since we have seen file size , lets check on how to compress file and extract the compressed file.
+
+file compression and archival are essential operations in Linux for managing data, optimizing storage resources, streamlining data transfer. These tasks play a crucial role in various aspects of system administration, data management.
+
+Common formats for software distribution include ZIP, TAR, and GZIP.
 
 ```
 tar -cvf file.tar file1 file2 file3  # -c stands for creating tar file and -f refers to tar file name , -v verbose mode, ie; to show files being archived
@@ -34,6 +37,13 @@ tar -xvf archive.tar # extract a compressed tar file
 ```
 
 ### Searching for Files and Patterns
+
+searching for files and patterns in Linux is a fundamental task that supports various activities, from system administration , data analysis (log file analysis) , and application management tasks
+
+It enables users to efficiently locate, analyze, and manipulate data .
+
+Few real time usecases are given as below
+
 
 ```
 
@@ -56,22 +66,31 @@ ls -R | grep 'filename-3.txt'
 ```
 find /path/to/search -name "filename"  
 
-# if we go one step ahead of just searching files in Linux , we can check for empty files and delete them as below
+find /path/to/search -name '*.log' 
+```
 
+ if we go one step ahead of just searching files in Linux , we can check for empty files and delete them as below
+```
 find /path/to/search  -empty -type d -delete  # delete empty directories in that path
 
 find /path/to/search  -empty -type f -delete  # delete empty files  in that path 
+
+find /var/log -type f -name "*.log" -mtime +30 -exec rm {} \;  
+
+#  -mtime +30: Specifies that files modified more than 30 days ago  and -exec rm {} \;: Executes the rm command on each file found by find. The {} placeholder is replaced with each file name, and \; terminates the -exec option.
 
 ```
 
 
 ### IO Redirection
-
+IO redirection is a fundamental concept in shell scripting and is widely used for various purposes, including logging, data processing, input/output manipulation. They greatly enhance the functionality and efficiency of shell scripts and command-line operations.
 
 3 standard streams of linux 
 
 Standard Input :- accepts text as input 
+
 Standard Output :- text output from any command is referred to as standard output
+
 Standard Error :- any error message for our command is referred to as standard error
 
 To redirect standard output to a file instead of printing on screen 
@@ -103,6 +122,25 @@ command > /dev/null # Redirecting standard output to /dev/null
 command 2> /dev/null  # Redirecting standard error to /dev/null
 command &> /dev/null # Redirecting both standard output and standard error to /dev/null
 
+```
+
+In real time , we can use it with our shell script or general commands in linux , for example,
+
+1) Redirecting Standard Output and Standard Error to the different files for  debugging or logging purposes.
+
+```
+./script.sh > output.log 2> error.log
+
+```
+2) Redirecting input from files 
+
+```
+./script.sh < input.txt
+```
+3) appending script output to log file to check log file later
+
+```
+./script.sh > output.txt
 ```
 
 
